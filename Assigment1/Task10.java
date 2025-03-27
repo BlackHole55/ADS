@@ -3,6 +3,7 @@ package Assigment1;
 import java.util.Scanner;
 
 public class Task10 {
+    // This algorithm calculates greates common denaminator using Euclidian algorithm.
     public static int gcd(int a, int b) {
         if (b == 0) {
             return a;
