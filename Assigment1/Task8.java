@@ -3,6 +3,8 @@ package Assigment1;
 import java.util.Scanner;
 
 public class Task8 {
+    // This algorithm detects if string of numbers contains a letter.
+    // Time complexity: O(n), because it iterates through all elements from 0 to (n - 1).
     private static String isDigit(char[] strArr, int i, boolean isDigit) {
         if (i >= strArr.length && !isDigit) {
             return "No";

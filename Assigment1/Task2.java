@@ -3,6 +3,8 @@ package Assigment1;
 import java.util.Scanner;
 
 public class Task2 {
+    // This method calculates total sum of all elements of array.
+    // The timee compexity: O(n), because algorithm iterates through all elements from 0 to n.
     private static float sum(int[] arr, int i, float sum) {
         if (i >= arr.length) {
             return sum;

@@ -3,6 +3,8 @@ package Assigment1;
 import java.util.Scanner;
 
 public class Task7 {
+    // This algorithm is reverses order of elements in array.
+    // Time complexity: O(n), because algorithm iterates through all elements from (n - 1) to 0.
     private static int reverse(int[] arr, int i) {
         if (i < 0) {
             return 0;

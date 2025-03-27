@@ -3,6 +3,8 @@ package Assigment1;
 import java.util.Scanner;
 
 public class Task4 {
+    // This method calculates the factorial of a given number.
+    // Time complexity: O(n), because algorithm iterates through all elements from 1 to n.
     private static int factorial(int n, int i, int result) {
         if (i > n) {
             return result;

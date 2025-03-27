@@ -3,6 +3,8 @@ package Assigment1;
 import java.util.Scanner;
 
 public class Task9 {
+    // This algorithm calculates binomial coefficient
+    // Time complexity: O(n), beccause in worst case it iterates from k to 0.
     public static int binomial(int k, int n) {
         if (k > n) {
             System.out.println("k can not be greater than n");

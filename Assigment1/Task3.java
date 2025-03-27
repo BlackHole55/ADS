@@ -2,7 +2,9 @@ package Assigment1;
 
 import java.util.Scanner;
 
-public class Task3 {
+public class Task3 { 
+    // This method calculates if given number is prime.
+    // Time complexity: O(n/2), because algorithm iterates n/2 times.
     private static String isPrime(int n, int i, boolean prime) {
         if (i >= (n / 2) && prime) {
             return "Prime";

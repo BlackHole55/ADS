@@ -3,6 +3,8 @@ package Assigment1;
 import java.util.Scanner;
 
 public class Task6 {
+    // This algorithm calculates power of given number.
+    // Time complexity: O(n), because algorithm iterates through all elements from 0 to powNum.
     private static long pow(int base, int powNum, int i, long result) {
         if (i >= powNum) {
             return result;

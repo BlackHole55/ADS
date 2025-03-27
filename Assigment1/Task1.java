@@ -3,8 +3,10 @@ package Assigment1;
 import java.util.Scanner;
 
 public class Task1 {
-    // currentMin parameter used for storing temporary minimal value
-    private static int minElem(int[] arr, int i, int currentMin) {
+    // This method finds minimum element of array.
+    // The timee compexity: O(n), because algorithm iterates through all elements from 0 to n.
+    private static int minElem(int[] arr, int i, int currentMin) {     // currentMin parameter used for storing temporary minimal value
+
         if (i >= arr.length) {
             return currentMin;
         }
