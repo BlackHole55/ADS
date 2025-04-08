@@ -1,12 +1,16 @@
 package Assigment2;
 
-public class MyArrayList <T> {
+public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
     private Object[] array;
     private int size = 0;
     private int capacity = 5;
 
     public MyArrayList() { 
         array = new Object[capacity]; 
+    }
+
+    public int size() {
+        return size;
     }
 
     public T get(int index) {
@@ -104,6 +108,10 @@ public class MyArrayList <T> {
 
     public void removeLast() {
         array[--size] = null;
+    }
+
+    public void sort() {
+
     }
 
     private void increaseBuffer() {
