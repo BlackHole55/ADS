@@ -153,7 +153,17 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
         }
 
         return -1;
-    } 
+    }
+
+    public int lastIndexOf(Object object) {
+        for(int i = size - 1; i >= 0; i--) {
+            if (array[i].equals(object)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 
     private void increaseBuffer() {
         capacity = (int) (1.5 * capacity);
