@@ -32,7 +32,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
 
     // Add new element
     public void add(T newItem) {
-        if(size == capacity) {
+        if (size == capacity) {
             increaseBuffer();
         }
         array[size++] = newItem;
@@ -46,7 +46,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
         }
         size++;
 
-        for(int i = size; i > index; i--) {
+        for (int i = size; i > index; i--) {
             array[i] = array[i - 1];
         }
 
@@ -60,7 +60,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
         }
         size++;
 
-        for(int i = size; i > 0; i--) {
+        for (int i = size; i > 0; i--) {
             array[i] = array[i - 1];
         }
 
@@ -69,7 +69,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
 
     // Add new element to the end
     public void addLast(T newItem) {
-        if(size == capacity) {
+        if (size == capacity) {
             increaseBuffer();
         }
         array[size++] = newItem;
@@ -83,7 +83,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
 
     // Print array
     public void print() {
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             System.out.print(array[i] + " ");
         }
         System.out.println();
@@ -99,7 +99,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
 
     // Remove element by index
     public void remove(int index) {
-        if(size-1 == index) {
+        if (size-1 == index) {
             array[index] = null;
         }
         else 
@@ -113,7 +113,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
 
     // Remove First element
     public void removeFirst() {
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             array[i] = array[i + 1];
         }
         size--;
@@ -138,7 +138,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
                     swapNeeded = true;                  
                 }
             }
-            if(!swapNeeded) {
+            if (!swapNeeded) {
                 break;
             }
             i++;
@@ -146,7 +146,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
     }
 
     public int indexOf(Object object) {
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             if (array[i].equals(object)) {
                 return i;
             }
@@ -156,7 +156,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
     }
 
     public int lastIndexOf(Object object) {
-        for(int i = size - 1; i >= 0; i--) {
+        for (int i = size - 1; i >= 0; i--) {
             if (array[i].equals(object)) {
                 return i;
             }
@@ -166,7 +166,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
     }
 
     public boolean exists(Object object) {
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             if (array[i].equals(object)) {
                 return true;
             }
@@ -186,7 +186,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
     private void increaseBuffer() {
         capacity = (int) (1.5 * capacity);
         Object[] array2 = new Object[capacity];
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             array2[i] = array[i]; 
         }
 
