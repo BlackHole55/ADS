@@ -102,6 +102,10 @@ public class MyArrayList <T> {
         size--;
     }
 
+    public void removeLast() {
+        array[--size] = null;
+    }
+
     private void increaseBuffer() {
         capacity = (int) (1.5 * capacity);
         Object[] array2 = new Object[capacity];
