@@ -145,6 +145,16 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
         }
     }
 
+    public int indexOf(Object object) {
+        for(int i = 0; i < size; i++) {
+            if (array[i].equals(object)) {
+                return i;
+            }
+        }
+
+        return -1;
+    } 
+
     private void increaseBuffer() {
         capacity = (int) (1.5 * capacity);
         Object[] array2 = new Object[capacity];
