@@ -47,10 +47,18 @@ public class MyLinkedList<T> implements MyList<T> {
     // Remove element by index
     public void remove(int index) {
         checkIndex(index);
-        MyNode nodeToRemove = getNode(index);
-        System.out.println(tail.data);
-        for (int i = index; i < size; i++) {
-            nodeToRemove = nodeToRemove.next;
+        MyNode currentNode = getNode(index);
+        
+        if (currentNode == head) {
+            head = head.next;
+        } else {
+            currentNode.prev.next = currentNode.next;
+        }
+
+        if (currentNode == tail) {
+            tail = currentNode.prev;
+        } else {
+            currentNode.next.prev = currentNode.prev;
         }
     }
 
