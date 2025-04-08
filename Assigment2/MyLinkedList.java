@@ -12,6 +12,14 @@ public class MyLinkedList<T> implements MyList<T> {
         return size;
     }
 
+    public void print() {
+        MyNode ptr = head;
+        while (ptr != null) {
+            System.out.print(ptr.data + " ");
+            ptr = ptr.next;
+        }
+    }
+
     // Add element to linked list
     public void add(T data) {
         MyNode newNode = new MyNode(data);
@@ -19,6 +27,7 @@ public class MyLinkedList<T> implements MyList<T> {
             head = tail = newNode;
         } else {
             tail.next = newNode;
+            newNode.prev = tail;
             tail = newNode;
         }
         size++;
@@ -37,7 +46,12 @@ public class MyLinkedList<T> implements MyList<T> {
 
     // Remove element by index
     public void remove(int index) {
-
+        checkIndex(index);
+        MyNode nodeToRemove = getNode(index);
+        System.out.println(tail.data);
+        for (int i = index; i < size; i++) {
+            nodeToRemove = nodeToRemove.next;
+        }
     }
 
     private static class MyNode {
@@ -54,5 +68,15 @@ public class MyLinkedList<T> implements MyList<T> {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index: " + index + " not found");
         }
+    }
+
+    private MyNode getNode(int index) {
+        checkIndex(index);
+        MyNode current = head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+
+        return current;
     }
 }
