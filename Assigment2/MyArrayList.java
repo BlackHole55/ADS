@@ -18,7 +18,7 @@ public class MyArrayList <T> {
     }
 
     public T getLast() {
-        return (T) array[--size];
+        return (T) array[size - 1];
     }
 
     public void add(T newItem) {
@@ -82,7 +82,7 @@ public class MyArrayList <T> {
         array = array2;
     }
 
-    public void delete(int index) {
+    public void remove(int index) {
         if(size-1 == index) {
             array[index] = null;
         }
