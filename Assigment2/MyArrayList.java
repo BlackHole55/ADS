@@ -88,9 +88,16 @@ public class MyArrayList <T> {
         }
         else 
         {
-            for(int i = index; i < size; i++) {
+            for(int i = index; i < size - 1; i++) {
                 array[i] = array[i + 1];
             }
+        }
+        size--;
+    }
+
+    public void removeFirst() {
+        for(int i = 0; i < size; i++) {
+            array[i] = array[i + 1];
         }
         size--;
     }
