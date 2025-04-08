@@ -175,6 +175,14 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
         return false;
     }
 
+    public Object[] toArray() {
+        Object[] resultArr = new Object[size];
+        for (int i = 0; i < size; i++) {
+            resultArr[i] = array[i];
+        }
+        return resultArr;
+    }
+
     private void increaseBuffer() {
         capacity = (int) (1.5 * capacity);
         Object[] array2 = new Object[capacity];
