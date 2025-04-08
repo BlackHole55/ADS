@@ -44,11 +44,18 @@ public class MyLinkedList<T> implements MyList<T> {
         return (T) current.data;
     }
 
+    // Update element by index
+    public void set(int index, T item) {
+        checkIndex(index);
+        MyNode nodeToChange = getNode(index);
+        nodeToChange.data = item;
+    }
+
     // Remove element by index
     public void remove(int index) {
         checkIndex(index);
         MyNode currentNode = getNode(index);
-        
+
         if (currentNode == head) {
             head = head.next;
         } else {
