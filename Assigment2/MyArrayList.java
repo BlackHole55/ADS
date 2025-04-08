@@ -14,6 +14,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
     }
 
     public T get(int index) {
+        checkIndex(index);
         return (T) array[index];
     }
 
@@ -33,13 +34,8 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
     }
 
     public void add(int index, T item) {
-        if(index >= size) {
-            System.out.println("Index out of bound");
-            
-        }
-        else {
-            array[index] = item;
-        }
+        checkIndex(index);
+        array[index] = item;
     }
 
     public void addFirst(T item) {
@@ -63,13 +59,8 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
     }
 
     public void set(int index, T item) {
-        if(index >= size) {
-            System.out.println("Index out of bound");
-            
-        }
-        else {
-            array[index] = item;
-        }
+        checkIndex(index);
+        array[index] = item;
     }
 
     public void print() {
@@ -110,9 +101,9 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
         array[--size] = null;
     }
 
-    public void sort() {
+    // public void sort() {
 
-    }
+    // }
 
     private void increaseBuffer() {
         capacity = (int) (1.5 * capacity);
@@ -122,5 +113,11 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
         }
 
         array = array2;
+    }
+
+    private void checkIndex(int index){
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index: " + index + " not found");
+        }
     }
 }
