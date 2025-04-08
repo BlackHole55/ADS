@@ -165,6 +165,16 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
         return -1;
     }
 
+    public boolean exists(Object object) {
+        for(int i = 0; i < size; i++) {
+            if (array[i].equals(object)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private void increaseBuffer() {
         capacity = (int) (1.5 * capacity);
         Object[] array2 = new Object[capacity];
