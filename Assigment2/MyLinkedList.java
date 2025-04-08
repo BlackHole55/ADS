@@ -18,6 +18,7 @@ public class MyLinkedList<T> implements MyList<T> {
             System.out.print(ptr.data + " ");
             ptr = ptr.next;
         }
+        System.out.println();
     }
 
     // Add element to linked list
@@ -29,6 +30,30 @@ public class MyLinkedList<T> implements MyList<T> {
             tail.next = newNode;
             newNode.prev = tail;
             tail = newNode;
+        }
+        size++;
+    }
+
+    // Add new element by index
+    public void add(int index, T data) {
+        checkIndex(index);
+        MyNode newNode = new MyNode(data);
+        MyNode indexNode = getNode(index);
+        if (indexNode == head) {
+            head.prev = newNode;
+            newNode.next = head;
+            head = newNode;
+        } else {
+            newNode.prev = indexNode.prev;
+            indexNode.prev.next = newNode;
+        }
+
+        if (indexNode == tail) {
+            tail.prev = newNode;
+            newNode.next = tail;
+        } else {
+            newNode.next = indexNode;
+            indexNode.next.prev = newNode;
         }
         size++;
     }
@@ -67,6 +92,7 @@ public class MyLinkedList<T> implements MyList<T> {
         } else {
             currentNode.next.prev = currentNode.prev;
         }
+        size--;
     }
 
     private static class MyNode {
