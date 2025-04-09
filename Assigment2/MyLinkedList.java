@@ -58,12 +58,21 @@ public class MyLinkedList<T> implements MyList<T> {
         size++;
     }
 
+    // Add element to the begining
     public void addFirst(T item) {
         MyNode newNode = new MyNode(item);
         head.prev = newNode;
         newNode.next = head;
         head = newNode;
         size++;
+    }
+
+    // Add element to the end
+    public void addLast(T item) {
+        MyNode newNode = new MyNode(item);
+        tail.next = newNode;
+        newNode.prev = tail;
+        tail = newNode;
     }
 
     // Get element by index
