@@ -201,6 +201,18 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
         return -1;
     }
 
+    public boolean exists(Object object) {
+        MyNode current = head;
+        while (current != null) {
+            if (current.data.equals(object)) {
+                return true;
+            }
+            current = current.next;
+        }
+
+        return false;
+    }
+
     private static class MyNode {
         Object data;
         MyNode next;
