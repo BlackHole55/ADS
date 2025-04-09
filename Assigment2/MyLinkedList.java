@@ -186,6 +186,7 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
         return -1;
     }
 
+    // Get index of last element by object
     public int lastIndexOf(Object object) {
         isEmpty();
         MyNode current = tail;
@@ -201,6 +202,7 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
         return -1;
     }
 
+    // Check if object exists
     public boolean exists(Object object) {
         MyNode current = head;
         while (current != null) {
@@ -211,6 +213,19 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
         }
 
         return false;
+    }
+
+    public Object[] toArray() {
+        Object[] array =  new Object[size];
+        MyNode current = head;
+        int i = 0;
+        while (current != null) {
+            array[i] = current.data;
+            current = current.next;
+            i++;
+        }
+
+        return array;
     }
 
     private static class MyNode {
