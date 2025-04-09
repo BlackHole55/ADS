@@ -1,6 +1,6 @@
 package Assigment2;
 
-public class MyLinkedList<T> implements MyList<T> {
+public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
     private MyNode head;
     private MyNode tail;
     private int size;
@@ -130,6 +130,34 @@ public class MyLinkedList<T> implements MyList<T> {
         tail = tail.prev;
         tail.next = null;
         size--;
+    }
+
+    public void sort() {
+        int i = 0;
+        boolean swapNeeded = true;
+
+        while (i < size - 1 && swapNeeded) {
+            swapNeeded = false;
+
+            MyNode current = head;
+            MyNode nextNode = head.next;
+
+            for (int j = 0; j < size - i - 1; j++) {
+                if (((T) current.data).compareTo((T) nextNode.data) > 0) {
+                    Object temp = current.data;
+                    current.data = nextNode.data;
+                    nextNode.data = temp;
+
+                    swapNeeded = true;                  
+                }
+                current = nextNode;
+                nextNode = nextNode.next;
+            }
+            if (!swapNeeded) {
+                break;
+            }
+            i++;
+        }
     }
 
     private static class MyNode {
