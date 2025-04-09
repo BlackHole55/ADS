@@ -73,6 +73,7 @@ public class MyLinkedList<T> implements MyList<T> {
         tail.next = newNode;
         newNode.prev = tail;
         tail = newNode;
+        size++;
     }
 
     // Get element by index
@@ -117,6 +118,17 @@ public class MyLinkedList<T> implements MyList<T> {
         } else {
             currentNode.next.prev = currentNode.prev;
         }
+        size--;
+    }
+
+    public void removeFirst() {
+        head = head.next;
+        size--;
+    }
+
+    public void removeLast() {
+        tail = tail.prev;
+        tail.next = null;
         size--;
     }
 
