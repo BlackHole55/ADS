@@ -61,18 +61,26 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
     // Add element to the begining
     public void addFirst(T item) {
         MyNode newNode = new MyNode(item);
-        head.prev = newNode;
-        newNode.next = head;
-        head = newNode;
+        if (head == null) {
+            head = tail = newNode;
+        } else {
+            head.prev = newNode;
+            newNode.next = head;
+            head = newNode;
+        }
         size++;
     }
 
     // Add element to the end
     public void addLast(T item) {
         MyNode newNode = new MyNode(item);
-        tail.next = newNode;
-        newNode.prev = tail;
-        tail = newNode;
+        if (head == null) {
+            head = tail = newNode;
+        } else {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        }
         size++;
     }
 
