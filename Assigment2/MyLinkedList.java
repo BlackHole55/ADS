@@ -88,10 +88,12 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
     }
 
     public T getFirst() {
+        isEmpty();
         return (T) head.data;
     }
 
     public T getLast() {
+        isEmpty();
         return (T) tail.data;
     }
 
@@ -122,13 +124,19 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
     }
 
     public void removeFirst() {
+        isEmpty();
         head = head.next;
         size--;
     }
 
     public void removeLast() {
-        tail = tail.prev;
-        tail.next = null;
+        isEmpty();
+        if (size <= 1) {
+            head = tail = null;
+        } else {
+            tail = tail.prev;
+            tail.next = null;
+        }
         size--;
     }
 
@@ -173,6 +181,12 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
     private void checkIndex(int index){
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index: " + index + " not found");
+        }
+    }
+
+    private void isEmpty() {
+        if (head == null) {
+            throw new NullPointerException("LinkedList is empty");
         }
     }
 
