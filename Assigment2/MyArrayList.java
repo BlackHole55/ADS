@@ -116,7 +116,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
     // Remove First element
     public void removeFirst() {
         isEmpty();
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size - 1; i++) {
             array[i] = array[i + 1];
         }
         size--;
