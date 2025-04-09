@@ -230,6 +230,7 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
 
     public void clear() {
         head = tail = null;
+        size = 0;
     }
 
     private static class MyNode {
