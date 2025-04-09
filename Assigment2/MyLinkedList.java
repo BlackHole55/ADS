@@ -140,6 +140,8 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
         size--;
     }
 
+
+    // Sort LinkedList using Bubble sort
     public void sort() {
         int i = 0;
         boolean swapNeeded = true;
@@ -168,17 +170,32 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
         }
     }
 
+    // Get index of element by object
     public int indexOf(Object object) {
         isEmpty();
         MyNode current = head;
         int i = 0;
-        // System.out.println(current.data);
         while (current != null) {
             if (current.data.equals(object)) {
                 return i;
             }
             current = current.next;
             i++;
+        }
+
+        return -1;
+    }
+
+    public int lastIndexOf(Object object) {
+        isEmpty();
+        MyNode current = tail;
+        int i = size - 1;
+        while (current != null) {
+            if (current.data.equals(object)) {
+                return i;
+            }
+            current = current.prev;
+            i--;
         }
 
         return -1;
