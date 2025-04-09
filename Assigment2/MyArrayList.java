@@ -22,11 +22,13 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
 
     // Get First element
     public T getFirst() {
+        isEmpty();
         return (T) array[0];
     }
 
     // Get Last element
     public T getLast() {
+        isEmpty();
         return (T) array[size - 1];
     }
 
@@ -113,6 +115,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
 
     // Remove First element
     public void removeFirst() {
+        isEmpty();
         for (int i = 0; i < size; i++) {
             array[i] = array[i + 1];
         }
@@ -121,6 +124,7 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
 
     // Remove Last element
     public void removeLast() {
+        isEmpty();
         array[--size] = null;
     }
 
@@ -191,6 +195,12 @@ public class MyArrayList <T extends Comparable<T>> implements MyList<T>{
         }
 
         array = array2;
+    }
+
+    private void isEmpty() {
+        if (size == 0) {
+            throw new NullPointerException("ArrayList is empty");
+        }
     }
 
     private void checkIndex(int index){
