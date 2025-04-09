@@ -86,6 +86,14 @@ public class MyLinkedList<T> implements MyList<T> {
         return (T) current.data;
     }
 
+    public T getFirst() {
+        return (T) head.data;
+    }
+
+    public T getLast() {
+        return (T) tail.data;
+    }
+
     // Update element by index
     public void set(int index, T item) {
         checkIndex(index);
