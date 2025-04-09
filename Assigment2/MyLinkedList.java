@@ -13,10 +13,10 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
     }
 
     public void print() {
-        MyNode ptr = head;
-        while (ptr != null) {
-            System.out.print(ptr.data + " ");
-            ptr = ptr.next;
+        MyNode current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
         }
         System.out.println();
     }
@@ -166,6 +166,22 @@ public class MyLinkedList<T extends Comparable<T>> implements MyList<T> {
             }
             i++;
         }
+    }
+
+    public int indexOf(Object object) {
+        isEmpty();
+        MyNode current = head;
+        int i = 0;
+        // System.out.println(current.data);
+        while (current != null) {
+            if (current.data.equals(object)) {
+                return i;
+            }
+            current = current.next;
+            i++;
+        }
+
+        return -1;
     }
 
     private static class MyNode {
