@@ -1,7 +1,7 @@
 package Assigment2;
 
 public class MyStack {
-    MyArrayList<Integer> stack = new MyArrayList<>();
+    MyLinkedList<Integer> stack = new MyLinkedList<>();
 
     // Check is stack empty
     public boolean empty() {
