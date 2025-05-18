@@ -2,15 +2,15 @@ package Assignment4;
 
 public class Main {
     public static void main(String[] args) {
-        // WeightedGraph<String> weightedGraph = new WeightedGraph<>(true);
-        // fillWithWeights(weightedGraph);
+        MyGraph<String> weightedGraph = new MyGraph<>(true);
+        fillWithWeights(weightedGraph);
 
-        // System.out.println("Dijkstra:");
-        // Search<String> djk = new DijkstraSearch<>(weightedGraph, "Almaty");
-        // outputPath(djk, "Kyzylorda");
+        System.out.println("Dijkstra:");
+        Search<String> djk = new DijkstraSearch<>(weightedGraph, "Almaty");
+        outputPath(djk, "Kyzylorda");
 
 
-        // System.out.println("--------------------------------");
+        System.out.println("--------------------------------");
 
         MyGraph<String> graph = new MyGraph<>(true);
         fillWithWeights(graph);
@@ -48,6 +48,11 @@ public class Main {
 
     public static void outputPath(Search<String> search, String key) {
         for (String v : search.pathTo(key)) {
+            if (v.equals(key)) {
+                System.out.print(v);
+                break;
+            }
+
             System.out.print(v + " -> ");
         }
 

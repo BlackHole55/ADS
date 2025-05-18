@@ -53,7 +53,7 @@ public class MyGraph<Vertex> {
         graph.get(source).add(new Edge<>(source, destination, weight));
 
         if (undirected) {
-            graph.get(destination).add(new Edge<>(source, destination, weight));
+            graph.get(destination).add(new Edge<>(destination, source, weight));
         }
     }
 
@@ -88,7 +88,7 @@ public class MyGraph<Vertex> {
         return vertices;
     }
 
-    public List<Edge<Vertex>> getEges(Vertex v) {
+    public List<Edge<Vertex>> getEdges(Vertex v) {
         if (!hasVertex(v)) {
             return null;
         }
