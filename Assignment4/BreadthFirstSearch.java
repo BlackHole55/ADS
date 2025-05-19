@@ -3,23 +3,24 @@ package Assignment4;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BreadthFirstSearch<Vertex> extends Search<Vertex> {
-    public BreadthFirstSearch(MyGraph<Vertex> graph, Vertex source) {
+public class BreadthFirstSearch<T> extends Search<T> {
+    public BreadthFirstSearch(MyGraph<T> graph, T source) {
         super(source);
 
-        bfs(graph, source);
+        Vertex<T> sourceVertex = new Vertex<>(source);
+        bfs(graph, sourceVertex);
     }
 
-    private void bfs(MyGraph<Vertex> graph, Vertex current) {
+    private void bfs(MyGraph<T> graph, Vertex<T> current) {
         visited.add(current);
 
-        Queue<Vertex> queue = new LinkedList<>();
+        Queue<Vertex<T>> queue = new LinkedList<>();
         queue.add(current);
 
         while (!queue.isEmpty()) {
-            Vertex v = queue.remove();
+            Vertex<T> v = queue.remove();
 
-            for (Vertex vertex : graph.adjacentVectorsList(v)) {
+            for (Vertex<T> vertex : graph.adjacentVectorsList(v)) {
                 if (!visited.contains(vertex)) {
                     visited.add(vertex);
                     edgeTo.put(vertex, v);

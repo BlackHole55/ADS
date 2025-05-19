@@ -6,35 +6,18 @@ public class Main {
         fillWithWeights(weightedGraph);
 
         System.out.println("Dijkstra:");
-        Search<String> djk = new DijkstraSearch<>(weightedGraph, "Almaty");
+        Search<String> djk = new DijkstraSearch<String>(weightedGraph, "Almaty");
         outputPath(djk, "Kyzylorda");
-
 
         System.out.println("--------------------------------");
 
         MyGraph<String> graph = new MyGraph<>(true);
         fillWithWeights(graph);
 
-        // System.out.println("DFS:");
-        // Search<String> dfs = new DepthFirstSearch<>(graph, "Almaty");
-        // outputPath(dfs, "Kyzylorda");
-
-        // System.out.println("--------------------------------");
-
         System.out.println("BFS:");
-        Search<String> bfs = new BreadthFirstSearch<>(graph, "Almaty");
+        Search<String> bfs = new BreadthFirstSearch<String>(graph, "Almaty");
         outputPath(bfs, "Kyzylorda");
     }
-
-    // public static void fillWithoutWeights(MyGraph<String> graph) {
-    //     graph.addEdge("Almaty", "Astana"); // 16 - 19
-    //     graph.addEdge("Shymkent", "Atyrau");
-    //     graph.addEdge("Atyrau", "Astana");
-    //     graph.addEdge("Almaty", "Shymkent");
-    //     graph.addEdge("Shymkent", "Astana");
-    //     graph.addEdge("Astana", "Kostanay");
-    //     graph.addEdge("Shymkent", "Kyzylorda");
-    // }
 
     public static void fillWithWeights(MyGraph<String> graph) {
         graph.addEdge("Almaty", "Astana", 2.1);
@@ -47,8 +30,9 @@ public class Main {
     }
 
     public static void outputPath(Search<String> search, String key) {
-        for (String v : search.pathTo(key)) {
-            if (v.equals(key)) {
+        for (Vertex<String> v : search.pathTo(key)) {
+            String strV = v.toString(); 
+            if (strV.equals(key)) {
                 System.out.print(v);
                 break;
             }
